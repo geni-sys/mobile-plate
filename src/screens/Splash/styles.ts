@@ -31,8 +31,40 @@ export const Header = styled.View`
   align-items: center;
 `;
 
+export const LogoContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+export const Logo = styled.Text`
+  font-size: 37px;
+  font-family: "IBMPlexSans_600SemiBold";
+  color: #dfdfdf;
+`;
+export const LogoText = styled.Text`
+  font-size: 17px;
+  font-family: "IBMPlexSans_600SemiBold";
+  color: #dfdfdf;
+  margin-left: 7px;
+`;
+
+export const Country = styled.View`
+  padding: 4px 17px;
+  border-radius: 5px;
+  background: #dedede;
+`;
+export const CountryText = styled.Text`
+  font-size: 16px;
+`;
+
 export const Content = styled.View`
-  max-height: 400px;
+  max-height: 500px;
+`;
+
+export const Text = styled.Text`
+  max-width: 300px;
+  font-size: 37px;
+  font-family: "IBMPlexSans_600SemiBold";
+  color: #dfdfdf;
 `;
 
 export const Buttons = styled.View`
@@ -49,17 +81,24 @@ const defaultButtonStyles = css`
 
   align-items: center;
   justify-content: center;
+  font-weight: bold;
 `;
 
-export const GettingStartButton = styled.View`
+export const GettingStartButton = styled.TouchableOpacity`
   ${defaultButtonStyles}
-  background: #121221;
+  background: #f8faf8;
 `;
 export const GettingStartButtonText = styled.Text`
   color: #2ea44f;
+  font-size: 20px;
 `;
 
-export const SignInButton = styled.View`
+export const SignInButton = styled.TouchableOpacity`
   ${defaultButtonStyles}
-  background: #dedede;
+  background: transparent;
+  margin-top: 17px;
+`;
+export const SignInButtonText = styled.Text`
+  color: #fd951f;
+  font-size: 20px;
 `;

@@ -1,16 +1,22 @@
 // import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
-import { Text, View } from "react-native";
 
 import {
   Container,
   Gradient,
   Header,
+  LogoContainer,
+  Logo,
+  LogoText,
+  Country,
+  CountryText,
   Content,
+  Text as MyText,
   Buttons,
   GettingStartButton,
   GettingStartButtonText,
   SignInButton,
+  SignInButtonText,
 } from "./styles";
 
 function Splash() {
@@ -19,21 +25,24 @@ function Splash() {
       <Gradient colors={["#4c669f", "#3b5998", "#192f6a"]} />
 
       <Header>
-        <Text>GS bank</Text>
+        <LogoContainer>
+          <Logo>GS</Logo>
+          <LogoText>finance</LogoText>
+        </LogoContainer>
 
-        <View>
-          <Text>Angola</Text>
-        </View>
+        <Country>
+          <CountryText>Angola</CountryText>
+        </Country>
       </Header>
       <Content>
-        <Text>Um mundo financeiro sem complexidade</Text>
+        <MyText>Um mundo financeiro sem complexidade</MyText>
 
         <Buttons>
           <GettingStartButton>
             <GettingStartButtonText>Começar</GettingStartButtonText>
           </GettingStartButton>
           <SignInButton>
-            <Text>Entrar na minha conta</Text>
+            <SignInButtonText>Entrar na minha conta</SignInButtonText>
           </SignInButton>
         </Buttons>
       </Content>
