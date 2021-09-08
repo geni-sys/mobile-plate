@@ -1,11 +1,37 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, SafeAreaView, Text, View } from "react-native";
+
+import {
+  Header,
+  Content,
+  Buttons,
+  GettingStartButton,
+  SignInButton,
+} from "./styles";
 
 function Splash() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Header>
+        <Text>GS bank</Text>
+
+        <View>
+          <Text>Angola</Text>
+        </View>
+      </Header>
+      <Content>
+        <Text>Um mundo financeiro sem complexidade</Text>
+
+        <Buttons>
+          <GettingStartButton>
+            <Text>Começar</Text>
+          </GettingStartButton>
+          <SignInButton>
+            <Text>Entrar na minha conta</Text>
+          </SignInButton>
+        </Buttons>
+      </Content>
+    </SafeAreaView>
   );
 }
 
