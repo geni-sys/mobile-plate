@@ -1,11 +1,32 @@
 import React from "react";
-import { View, Text } from "react-native";
+
+import {
+  BINInput,
+  ButtonText,
+  Container,
+  Content,
+  Text,
+  DefaultNextButton,
+  Header,
+  Main,
+} from "./styles";
 
 function SignIn() {
   return (
-    <View>
-      <Text />
-    </View>
+    <Container>
+      <Header />
+      <Main>
+        <Content>
+          <Text>Bom te ver novamente! Para entrar, digite o seu BIN</Text>
+          <BINInput />
+          <Text>é novo por aqui? Começar</Text>
+        </Content>
+
+        <DefaultNextButton>
+          <ButtonText>Continuar</ButtonText>
+        </DefaultNextButton>
+      </Main>
+    </Container>
   );
 }
 

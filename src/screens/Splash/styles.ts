@@ -1,5 +1,6 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { getStatusBarHeight } from "react-native-iphone-x-helper";
+import { RFValue } from "react-native-responsive-fontsize";
 import styled, { css } from "styled-components/native";
 
 export const Container = styled.View`
@@ -36,12 +37,12 @@ export const LogoContainer = styled.View`
   align-items: center;
 `;
 export const Logo = styled.Text`
-  font-size: 37px;
+  font-size: ${RFValue(37)}px;
   font-family: "IBMPlexSans_600SemiBold";
   color: #dfdfdf;
 `;
 export const LogoText = styled.Text`
-  font-size: 17px;
+  font-size: ${RFValue(17)}px;
   font-family: "IBMPlexSans_600SemiBold";
   color: #dfdfdf;
   margin-left: 7px;
@@ -53,7 +54,7 @@ export const Country = styled.View`
   background: #dedede;
 `;
 export const CountryText = styled.Text`
-  font-size: 16px;
+  font-size: ${RFValue(16)}px;
 `;
 
 export const Content = styled.View`
@@ -62,7 +63,7 @@ export const Content = styled.View`
 
 export const Text = styled.Text`
   max-width: 300px;
-  font-size: 37px;
+  font-size: ${RFValue(37)}px;
   font-family: "IBMPlexSans_600SemiBold";
   color: #dfdfdf;
 `;
@@ -90,7 +91,7 @@ export const GettingStartButton = styled.TouchableOpacity`
 `;
 export const GettingStartButtonText = styled.Text`
   color: #2ea44f;
-  font-size: 20px;
+  font-size: ${RFValue(20)}px;
 `;
 
 export const SignInButton = styled.TouchableOpacity`
@@ -100,5 +101,5 @@ export const SignInButton = styled.TouchableOpacity`
 `;
 export const SignInButtonText = styled.Text`
   color: #fd951f;
-  font-size: 20px;
+  font-size: ${RFValue(20)}px;
 `;
