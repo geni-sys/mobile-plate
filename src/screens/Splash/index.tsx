@@ -1,17 +1,23 @@
+// import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
-import { StyleSheet, SafeAreaView, Text, View } from "react-native";
+import { Text, View } from "react-native";
 
 import {
+  Container,
+  Gradient,
   Header,
   Content,
   Buttons,
   GettingStartButton,
+  GettingStartButtonText,
   SignInButton,
 } from "./styles";
 
 function Splash() {
   return (
-    <SafeAreaView style={styles.container}>
+    <Container>
+      <Gradient colors={["#4c669f", "#3b5998", "#192f6a"]} />
+
       <Header>
         <Text>GS bank</Text>
 
@@ -24,24 +30,15 @@ function Splash() {
 
         <Buttons>
           <GettingStartButton>
-            <Text>Começar</Text>
+            <GettingStartButtonText>Começar</GettingStartButtonText>
           </GettingStartButton>
           <SignInButton>
             <Text>Entrar na minha conta</Text>
           </SignInButton>
         </Buttons>
       </Content>
-    </SafeAreaView>
+    </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
 
 export { Splash };
