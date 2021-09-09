@@ -9,14 +9,19 @@ export default {
     highlightText: "#2ea44f",
     highlightTextSec: "#FD951F",
 
-    text: "#7A7A80",
+    primary_light: "#F8F8F8",
+
+    foreground_text: "#CDDEFF",
+    text: "#413F3F",
+    link: "#2254FA",
+
     text_detail: "#AEAEB3",
     title: "#47474D",
   },
 
   fonts: {
-    primary_400: "Inter_400Regular",
-    primary_500: "Inter_500Medium",
+    primary_400: "IBMPlexSans_400Regular",
+    primary_500: "IBMPlexSans_500Regular",
 
     secondary_600: "IbmPlexSans_600SemiBold",
   },

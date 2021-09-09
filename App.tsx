@@ -7,6 +7,7 @@ import React from "react";
 import {
   useFonts,
   IBMPlexSans_600SemiBold,
+  IBMPlexSans_400Regular,
 } from "@expo-google-fonts/ibm-plex-sans";
 
 import { Routes } from "./src/routes";
@@ -15,6 +16,7 @@ import { Routes } from "./src/routes";
 export default function App() {
   const [fontsLoaded] = useFonts({
     IBMPlexSans_600SemiBold,
+    IBMPlexSans_400Regular,
   });
 
   if (!fontsLoaded) {

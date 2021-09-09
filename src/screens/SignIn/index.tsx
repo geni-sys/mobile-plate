@@ -1,7 +1,7 @@
 import React from "react";
 
+// import { Input } from "../../components/Input";
 import {
-  BINInput,
   ButtonText,
   Container,
   Content,
@@ -18,7 +18,7 @@ function SignIn() {
       <Main>
         <Content>
           <Text>Bom te ver novamente! Para entrar, digite o seu BIN</Text>
-          <BINInput />
+          {/* <Input iconName="cast" /> */}
           <Text>é novo por aqui? Começar</Text>
         </Content>
 

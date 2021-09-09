@@ -26,6 +26,7 @@
     "react-native"
   ],
   "rules": {
+    "react/require-default-props": "off",
     "no-use-before-define": "off",
     "react/style-prop-object": "off",
     "react/jsx-filename-extension": [
