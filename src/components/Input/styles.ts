@@ -8,7 +8,13 @@ interface IContainerProps {
 
 export const Container = styled.View<IContainerProps>`
   flex-direction: row;
-  margin-bottom: 8px;
+  align-items: center;
+
+  margin: 8px 0;
+  border-radius: 2px;
+  height: 50px;
+  border: 0.5px solid black;
+
   ${({ isFocused }) =>
     isFocused &&
     css`
@@ -22,15 +28,13 @@ export const IconContainer = styled.View`
   width: 55px;
   justify-content: center;
   align-items: center;
-  margin-right: 2px;
-  background-color: #dedede;
+  margin-right: 0.4px;
 `;
 
 export const InputText = styled(TextInput)`
   flex: 1;
-  background-color: #dedede;
   color: #121213;
   font-family: "IBMPlexSans_400Regular";
-  font-size: ${RFValue(15)}px;
-  padding: 0 23px;
+  font-size: ${RFValue(19)}px;
+  padding: 0 10px;
 `;

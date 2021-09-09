@@ -21,7 +21,7 @@ export default {
 
   fonts: {
     primary_400: "IBMPlexSans_400Regular",
-    primary_500: "IBMPlexSans_500Regular",
+    primary_500: "IBMPlexSans_500Medium",
 
     secondary_600: "IbmPlexSans_600SemiBold",
   },

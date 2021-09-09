@@ -8,6 +8,7 @@ import {
   useFonts,
   IBMPlexSans_600SemiBold,
   IBMPlexSans_400Regular,
+  IBMPlexSans_500Medium,
 } from "@expo-google-fonts/ibm-plex-sans";
 
 import { Routes } from "./src/routes";
@@ -17,6 +18,7 @@ export default function App() {
   const [fontsLoaded] = useFonts({
     IBMPlexSans_600SemiBold,
     IBMPlexSans_400Regular,
+    IBMPlexSans_500Medium,
   });
 
   if (!fontsLoaded) {

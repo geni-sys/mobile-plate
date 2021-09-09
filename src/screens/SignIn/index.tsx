@@ -1,32 +1,82 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
+import { KeyboardAvoidingView, StatusBar, Platform } from "react-native";
+import { mask, unMask } from "remask";
 
-// import { Input } from "../../components/Input";
+import { Feather } from "@expo/vector-icons";
+import { CommonActions, useNavigation } from "@react-navigation/native";
+
+import { Button } from "../../components/Button";
+import { Input } from "../../components/Input";
 import {
-  ButtonText,
   Container,
   Content,
   Text,
-  DefaultNextButton,
   Header,
   Main,
+  Bottom,
+  HandleCloseScreen,
+  WantSignUp,
+  ToStart,
+  ToStartButton,
 } from "./styles";
 
 function SignIn() {
-  return (
-    <Container>
-      <Header />
-      <Main>
-        <Content>
-          <Text>Bom te ver novamente! Para entrar, digite o seu BIN</Text>
-          {/* <Input iconName="cast" /> */}
-          <Text>é novo por aqui? Começar</Text>
-        </Content>
+  const [BIN, setBIN] = useState("");
 
-        <DefaultNextButton>
-          <ButtonText>Continuar</ButtonText>
-        </DefaultNextButton>
-      </Main>
-    </Container>
+  const navigation = useNavigation();
+
+  const handleBINMaskOnChange = useCallback((value: string) => {
+    setBIN(mask(unMask(value), ["999.999.999-99"]));
+  }, []);
+
+  return (
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      enabled
+      style={{ flex: 1 }}
+    >
+      <Container>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="transparent"
+          translucent
+        />
+
+        <Header />
+
+        <Main>
+          <Content>
+            <HandleCloseScreen
+              onPress={() => navigation.dispatch(CommonActions.goBack())}
+            >
+              <Feather name="x" size={34} color="#121214" />
+            </HandleCloseScreen>
+            <Text>Bom te ver novamente! Para entrar, digite o seu BIN</Text>
+            <Input
+              autoFocus
+              keyboardType="numeric"
+              maxLength={11}
+              iconName="cast"
+              autoCorrect={false}
+              autoCapitalize="none"
+              onChangeText={handleBINMaskOnChange}
+              value={BIN}
+            />
+            <Text>{BIN}</Text>
+          </Content>
+
+          <Bottom>
+            <WantSignUp>
+              <ToStart>é novo por aqui? </ToStart>
+              <ToStartButton>
+                <ToStart highlight>Começar</ToStart>
+              </ToStartButton>
+            </WantSignUp>
+            <Button title="Continuar" />
+          </Bottom>
+        </Main>
+      </Container>
+    </KeyboardAvoidingView>
   );
 }
 
