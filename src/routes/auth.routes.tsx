@@ -9,15 +9,20 @@ const { Navigator, Screen } = createStackNavigator();
 
 function AuthRoutes() {
   return (
-    <Navigator initialRouteName="Splash">
+    <Navigator
+      initialRouteName="Splash"
+      defaultScreenOptions={{ headerShown: false }}
+    >
       <Screen
-        options={{
-          headerShown: false,
-        }}
+        options={{ headerShown: false }}
         name="Splash"
         component={Splash}
       />
-      <Screen name="SignIn" component={SignIn} />
+      <Screen
+        options={{ headerShown: false }}
+        name="SignInFirstStep"
+        component={SignIn}
+      />
     </Navigator>
   );
 }

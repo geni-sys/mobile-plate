@@ -19,7 +19,13 @@ import {
   SignInButtonText,
 } from "./styles";
 
-function Splash() {
+type SplashProps = {
+  navigation: {
+    navigate: (routeName: string, options?: {}) => void;
+  };
+};
+
+function Splash({ navigation }: SplashProps) {
   return (
     <Container>
       <Gradient colors={["#4c669f", "#3b5998", "#192f6a"]} />
@@ -38,7 +44,9 @@ function Splash() {
         <MyText>Um mundo financeiro sem complexidade</MyText>
 
         <Buttons>
-          <GettingStartButton>
+          <GettingStartButton
+            onPress={() => navigation.navigate("SignInFirstStep")}
+          >
             <GettingStartButtonText>Começar</GettingStartButtonText>
           </GettingStartButton>
           <SignInButton>
