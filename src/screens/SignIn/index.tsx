@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
-import { KeyboardAvoidingView, StatusBar, Platform } from "react-native";
+import { KeyboardAvoidingView, StatusBar, Platform, Alert } from "react-native";
 import { mask, unMask } from "remask";
+import * as Yup from "yup";
 
 import { Feather } from "@expo/vector-icons";
 import { CommonActions } from "@react-navigation/native";
@@ -26,6 +27,29 @@ type IProps = StackScreenProps<AuthStackParamList, "SignInFirstStep">;
 
 function SignIn({ navigation }: IProps) {
   const [BIN, setBIN] = useState("");
+
+  const ContinueToSignSecondStep = useCallback(async () => {
+    try {
+      const schema = Yup.object().shape({
+        BIN: Yup.string()
+          .max(11, "BIN deve ter 11 dígitos")
+          .required("BIN é obrigatório"),
+      });
+
+      await schema.validate({ BIN: unMask(BIN) });
+
+      navigation.navigate("SignInSecondStep");
+    } catch (error: any) {
+      if (error instanceof Yup.ValidationError) {
+        Alert.alert("Opa", error.message);
+      } else {
+        Alert.alert(
+          "Erro na autenticação",
+          "Ocorreu um erro ao fazer login, verifique as credenciais"
+        );
+      }
+    }
+  }, [BIN]);
 
   const handleBINMaskOnChange = useCallback((value: string) => {
     setBIN(mask(unMask(value), ["999.999.999-99"]));
@@ -78,7 +102,7 @@ function SignIn({ navigation }: IProps) {
                 <ToStart highlight>Começar</ToStart>
               </ToStartButton>
             </WantSignUp>
-            <Button title="Continuar" />
+            <Button onPress={ContinueToSignSecondStep} title="Continuar" />
           </Bottom>
         </Main>
       </Container>
