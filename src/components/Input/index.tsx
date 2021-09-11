@@ -29,7 +29,7 @@ export function Input({ iconName, value, ...rest }: IProps) {
         <Feather
           name={iconName}
           size={24}
-          color={isFocused || isFilled ? "#2ea44f" : "#f21553"}
+          color={isFocused || isFilled ? "#2ea44f" : "#999999"}
         />
       </IconContainer>
 
