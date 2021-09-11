@@ -3,10 +3,12 @@ import { KeyboardAvoidingView, StatusBar, Platform } from "react-native";
 import { mask, unMask } from "remask";
 
 import { Feather } from "@expo/vector-icons";
-import { CommonActions, useNavigation } from "@react-navigation/native";
+import { CommonActions } from "@react-navigation/native";
+import { StackScreenProps } from "@react-navigation/stack";
 
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
+import { AuthStackParamList } from "../../routes/auth.routes";
 import {
   Container,
   Content,
@@ -20,13 +22,17 @@ import {
   ToStartButton,
 } from "./styles";
 
-function SignIn() {
-  const [BIN, setBIN] = useState("");
+type IProps = StackScreenProps<AuthStackParamList, "SignInFirstStep">;
 
-  const navigation = useNavigation();
+function SignIn({ navigation }: IProps) {
+  const [BIN, setBIN] = useState("");
 
   const handleBINMaskOnChange = useCallback((value: string) => {
     setBIN(mask(unMask(value), ["999.999.999-99"]));
+  }, []);
+
+  const navigateToSingUpScreen = useCallback(() => {
+    navigation.navigate("SignUpFistStep");
   }, []);
 
   return (
@@ -68,7 +74,7 @@ function SignIn() {
           <Bottom>
             <WantSignUp>
               <ToStart>é novo por aqui? </ToStart>
-              <ToStartButton>
+              <ToStartButton onPress={navigateToSingUpScreen}>
                 <ToStart highlight>Começar</ToStart>
               </ToStartButton>
             </WantSignUp>

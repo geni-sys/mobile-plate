@@ -3,9 +3,16 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import { SignIn } from "../screens/SignIn";
+import { SignUp } from "../screens/signUp";
 import { Splash } from "../screens/Splash";
 
-const { Navigator, Screen } = createStackNavigator();
+export type AuthStackParamList = {
+  Splash: undefined;
+  SignInFirstStep: undefined;
+  SignUpFistStep: undefined;
+};
+
+const { Navigator, Screen } = createStackNavigator<AuthStackParamList>();
 
 function AuthRoutes() {
   return (
@@ -22,6 +29,11 @@ function AuthRoutes() {
         options={{ headerShown: false }}
         name="SignInFirstStep"
         component={SignIn}
+      />
+      <Screen
+        options={{ headerShown: false }}
+        name="SignUpFistStep"
+        component={SignUp}
       />
     </Navigator>
   );

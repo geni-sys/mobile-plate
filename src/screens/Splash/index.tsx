@@ -1,6 +1,9 @@
 // import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 
+import { StackScreenProps } from "@react-navigation/stack";
+
+import { AuthStackParamList } from "../../routes/auth.routes";
 import {
   Container,
   Gradient,
@@ -19,13 +22,9 @@ import {
   SignInButtonText,
 } from "./styles";
 
-type SplashProps = {
-  navigation: {
-    navigate: (routeName: string, options?: {}) => void;
-  };
-};
+type ISplashScreenProps = StackScreenProps<AuthStackParamList, "Splash">;
 
-function Splash({ navigation }: SplashProps) {
+function Splash({ navigation }: ISplashScreenProps) {
   return (
     <Container>
       <Gradient colors={["#4c669f", "#3b5998", "#192f6a"]} />
