@@ -10,7 +10,7 @@ import { Splash } from "../screens/Splash";
 export type AuthStackParamList = {
   Splash: undefined;
   SignInFirstStep: undefined;
-  SignInSecondStep: undefined;
+  SignInSecondStep: { user_document: string } | undefined;
   SignUpFistStep: undefined;
 };
 

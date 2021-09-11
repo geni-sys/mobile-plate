@@ -38,7 +38,9 @@ function SignIn({ navigation }: IProps) {
 
       await schema.validate({ BIN: unMask(BIN) });
 
-      navigation.navigate("SignInSecondStep");
+      navigation.navigate("SignInSecondStep", {
+        user_document: String(BIN),
+      });
     } catch (error: any) {
       if (error instanceof Yup.ValidationError) {
         Alert.alert("Opa", error.message);

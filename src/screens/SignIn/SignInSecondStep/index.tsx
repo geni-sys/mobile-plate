@@ -8,6 +8,7 @@ import { StackScreenProps } from "@react-navigation/stack";
 
 import { Button } from "../../../components/Button";
 import { Input } from "../../../components/Input";
+import { useAuth } from "../../../hooks/auth";
 import { AuthStackParamList } from "../../../routes/auth.routes";
 import {
   Container,
@@ -24,8 +25,11 @@ import {
 
 type IProps = StackScreenProps<AuthStackParamList, "SignInSecondStep">;
 
-function SignInSecondStep({ navigation }: IProps) {
+function SignInSecondStep({ navigation, route }: IProps) {
   const [password, setPassword] = useState("");
+  const BIN = route.params?.user_document as string;
+
+  const { signIn } = useAuth();
 
   const handleLogin = useCallback(async () => {
     try {
@@ -35,7 +39,7 @@ function SignInSecondStep({ navigation }: IProps) {
 
       await schema.validate({ password });
 
-      navigation.navigate("SignInSecondStep");
+      await signIn({ password, BIN });
     } catch (error: any) {
       if (error instanceof Yup.ValidationError) {
         Alert.alert("Opa", error.message);

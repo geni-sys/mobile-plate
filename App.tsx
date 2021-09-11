@@ -11,6 +11,7 @@ import {
   IBMPlexSans_500Medium,
 } from "@expo-google-fonts/ibm-plex-sans";
 
+import { AppProvider } from "./src/hooks";
 import { Routes } from "./src/routes";
 // import theme from "./src/styles/theme";
 
@@ -25,5 +26,9 @@ export default function App() {
     return <AppLoading />;
   }
 
-  return <Routes />;
+  return (
+    <AppProvider>
+      <Routes />
+    </AppProvider>
+  );
 }

@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { NavigationContainer } from "@react-navigation/native";
 
+import { useAuth } from "../hooks/auth";
 import { AppStackRoutes } from "./app.stack.routes";
 import { AuthRoutes } from "./auth.routes";
 
 function Routes() {
-  const [user] = useState(true);
+  const { user } = useAuth();
 
   return (
     <NavigationContainer>
-      {user ? <AppStackRoutes /> : <AuthRoutes />}
+      {user.BIN ? <AppStackRoutes /> : <AuthRoutes />}
     </NavigationContainer>
   );
 }
